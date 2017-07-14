@@ -10,9 +10,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lv.demo.decoration.DividerItemDecoration;
-import com.lv.demo.dialog.CustomBaseDialog;
+import com.lv.demo.view.BottomMenuDialog;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -103,7 +104,10 @@ public class HomeActivity extends AppCompatActivity {
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new CustomBaseDialog(v.getContext()).show();
+                        BottomMenuDialog dialog = new BottomMenuDialog.BottomMenuBuilder(getSupportFragmentManager())
+                                .addItems(Arrays.asList("趴在", "啊说的话", "取消"))
+                                .build();
+                        dialog.show();
                     }
                 });
             }
